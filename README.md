@@ -2,6 +2,6 @@
 Abramove tasks
 
 All tasks run from terminal:
-'''cmd
+```cmd
 ruby <filename>.rb <arg>
-'''
+```
