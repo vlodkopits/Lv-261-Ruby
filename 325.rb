@@ -1,24 +1,19 @@
-#325. Дано натуральное число n. Получить все простые делители этого числа.
+# 325. Дано натуральное число n. Получить все простые делители этого числа.
+puts '325. Дано натуральне число N. Отримати всі прості дільники цього числа.'
+puts 'Input integer number N:'
 
-n=ARGV[0].to_i
+n = gets.to_i
 
-dividers=[1]
-
+dividers = [1]
 
 (2..n).each do |i|
-	if n% i==0
-		#puts i #виводимо всі цілочисельні дільники 
-		dividers.push(i)
-		(2..i).each do |l|
-			#puts "= #{i} -- #{l}"
-			#puts "== #{i} / #{l} = #{i%l}"
-			if (i%l==0) && (i>l)
-				#puts "== #{i} / #{l}"
-				dividers.delete(i)
-			end
-		end
-	end
+  if (n % i).zero?
+    dividers.push(i)
+    (2..i).each do |l|
+      dividers.delete(i) if (i % l).zero? && (i > l)
+    end
+  end
 end
-
+puts "simple divides numbers for #{n} are:"
 print dividers
-
+puts "\n"
