@@ -3,12 +3,17 @@ puts '224. Дано натуральне число N. Отримати всі �
 puts 'Input integer number N:'
 
 n = gets.to_i
-divide_arr = []
-i = 1
-while n >= i
-  divide_arr.push(i) if (n % i).zero?
-  i += 1
+
+def n_dividers(n)
+  divide_arr = []
+  i = 1
+  while n >= i
+    divide_arr.push(i) if (n % i).zero?
+    i += 1
+  end
+  puts "divides numbers for #{n} are:"
+  print divide_arr
+  puts "\n"
 end
-puts "divides numbers for #{n} are:"
-print divide_arr
-puts "\n"
+
+n_dividers(n)

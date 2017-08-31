@@ -4,22 +4,26 @@ puts 'Input integer number N:'
 
 n = gets.to_i
 
-square_arr = []
+def num_last_square(n)
+  square_arr = []
 
-(1..n).each do |i|
-  square = i * i
+  (1..n).each do |i|
+    square = i * i
 
-  i_length = i.to_s.split('').length
+    i_length = i.to_s.split('').length
 
-  square_num_arr = square.to_s.split('')
-  square_num = square_num_arr.drop(square_num_arr.length - i_length)
-  square_last_num = square_num.join
+    square_num_arr = square.to_s.split('')
+    square_num = square_num_arr.drop(square_num_arr.length - i_length)
+    square_last_num = square_num.join
 
-  if i == square_last_num.to_i
-    puts "#{square} is #{i}*#{i}"
-    square_arr.push(i)
+    if i == square_last_num.to_i
+      puts "#{square} is #{i}*#{i}"
+      square_arr.push(i)
+    end
   end
+
+  print square_arr
+  puts "\n"
 end
 
-print square_arr
-puts "\n"
+num_last_square(n)

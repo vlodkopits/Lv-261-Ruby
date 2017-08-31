@@ -4,16 +4,19 @@ puts 'Input integer number N:'
 
 n = gets.to_i
 
-dividers = [1]
-
-(2..n).each do |i|
-  if (n % i).zero?
-    dividers.push(i)
-    (2..i).each do |l|
-      dividers.delete(i) if (i % l).zero? && (i > l)
+def n_prime_dividers(n)
+  dividers = [1]
+  (2..n).each do |i|
+    if (n % i).zero?
+      dividers.push(i)
+      (2..i).each do |l|
+        dividers.delete_if { |i| (i % l).zero? && (i > l) } 
+      end
     end
   end
+  puts "simple divides numbers for #{n} are:"
+  print dividers
+  puts "\n"
 end
-puts "simple divides numbers for #{n} are:"
-print dividers
-puts "\n"
+
+n_prime_dividers(n)
