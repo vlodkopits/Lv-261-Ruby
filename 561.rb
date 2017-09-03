@@ -13,7 +13,7 @@ def num_last_square(n)
     i_length = i.to_s.split('').length
 
     square_num_arr = square.to_s.split('')
-    square_num = square_num_arr.drop(square_num_arr.length - i_length)
+    square_num = square_num_arr.drop(square_num_arr.length - i_length)                             
     square_last_num = square_num.join
 
     if i == square_last_num.to_i
