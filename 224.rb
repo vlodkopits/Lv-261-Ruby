@@ -6,13 +6,13 @@ n = gets.to_i
 def n_dividers(n)
   divide_arr = []
   i = 1
-  while n >= i
+
+  while n >= i do
     divide_arr.push(i) if (n % i).zero?
     i += 1
   end
-  puts "divides numbers for #{n} are:"
-  print divide_arr
-  puts "\n"
+  
+  puts "divides numbers for #{n} are: #{divide_arr}"
 end
 
 n_dividers(n)
