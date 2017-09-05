@@ -1,7 +1,7 @@
 # Lv-261-Ruby
-##Abramove tasks
+## Abramove tasks
 
-All tasks run from terminal:
+### All tasks run from terminal:
 ```cmd
 ruby <filename>.rb 
 ```

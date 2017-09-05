@@ -1,6 +1,5 @@
 require './abramove.rb'
 require 'json'
-require 'prime'
 include Abramove
 
 # terminal interface for communicated with user
@@ -26,8 +25,12 @@ class Obolonka
       arg = input_method()
       num_last_square(arg)
     else
-      print 'Enter valid number'
+      print 'Enter valid number: '
     end
+
+    print 'Another task? y/n: '
+    gets.chomp == 'y' ? start : return
+
   end
 end
 
