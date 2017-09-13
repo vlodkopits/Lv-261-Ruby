@@ -5,19 +5,13 @@ puts 'Input integer number N:'
 n = gets.to_i
 
 def num_last_square(n)
-  square_arr = []
-
-  (1..n).each do |num|
-    square = num * num
-
-    num_length = num.to_s.split('').length
-    last_num_length = square.to_s.split('').length - num_length
-    square_last_num = square.to_s.split('').drop(last_num_length).join
-
-    square_arr.push(num) if num == square_last_num.to_i
+  square_arr = (1..n).select do |num|
+    num_length = num.digits.count
+    square_last_num = (num**2).digits.reverse.last(num_length).join
+    num == square_last_num.to_i
   end
 
-  print square_arr
+  puts "answer: #{square_arr}"
 end
 
 num_last_square(n)

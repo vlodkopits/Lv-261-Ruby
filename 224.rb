@@ -5,13 +5,7 @@ n = gets.to_i
 
 def n_dividers(n)
   divide_arr = []
-  i = 1
-
-  while n >= i do
-    divide_arr.push(i) if (n % i).zero?
-    i += 1
-  end
-  
+  (1..n).each { |i| divide_arr.push(i) if (n % i).zero? }
   puts "divides numbers for #{n} are: #{divide_arr}"
 end
 

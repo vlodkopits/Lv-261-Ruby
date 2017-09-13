@@ -7,13 +7,12 @@ puts 'Input integer number N:'
 n = gets.to_i
 
 def n_prime_dividers(n)
-  dividers = [1]
+  #dividers = (1..n).select { |prime| (n % prime).zero? && ((2...prime).all? { |i| (prime % i) > 0 }) }
+  ##(1..10).select { |x| (1..x).select { |y| x % y == 0 }.size==2 }
+  dividers = (2...n).select { |divider| (n % divider).zero? }
+  prime_deviders = dividers.select { |prime|  (2...prime).all? { |i| (prime % i) > 0 } }
 
-  (2..n).each do |i|
-    dividers.push(i) if (n % i).zero? && Prime.prime?(i)
-  end
-  
-  puts "simple divides numbers for #{n} are: #{dividers}"
+  puts "simple divides numbers for #{n} are: #{prime_deviders}"
 end
 
 n_prime_dividers(n)

@@ -21,6 +21,12 @@ class Obolonka
     when 325
       arg = input_method()
       n_prime_dividers(arg)
+    when 331
+      arg = input_method()
+      three_square_sum(arg)
+    when 332
+      arg = input_method()
+      lagrange(arg)
     when 561
       arg = input_method()
       num_last_square(arg)
@@ -30,7 +36,6 @@ class Obolonka
 
     print 'Another task? y/n: '
     gets.chomp == 'y' ? start : return
-
   end
 end
 
