@@ -2,21 +2,30 @@ require 'prime'
 # module for tasks Abramove
 module Abramove
   # task 224
-  def n_dividers(n)
+  def n_dividers
+    print 'Input integer number N: '
+    n = gets.to_i
+    
     divide_arr = (1..n).select { |num| (n % num).zero? }
 
     puts "divides numbers for #{n} are: #{divide_arr}"
   end
 
   # task 325
-  def n_prime_dividers(n)
+  def n_prime_dividers
+    print 'Input integer number N: '
+    n = gets.to_i
+
     dividers = (2..n).select { |num| (n % num).zero? && Prime.prime?(num) }
 
     puts "simple divides numbers for #{n} are: #{dividers}"
   end
 
-  # task 325 ather ver
-  def n_prime_dividers_v2(n)
+  # task 325 other ver
+  def n_prime_dividers_v2
+    print 'Input integer number N: '
+    n = gets.to_i
+
     dividers = (2...n).select { |divider| (n % divider).zero? }
     prime_deviders = dividers.select { |prime| (2...prime).all? { |i| (prime % i) > 0 } }
 
@@ -24,7 +33,10 @@ module Abramove
   end
 
   # task 561
-  def num_last_square(n)
+  def num_last_square
+    print 'Input integer number N: '
+    n = gets.to_i
+
     square_arr =
       (1..n).select do |num|
         num_length = num.digits.count
@@ -33,11 +45,5 @@ module Abramove
       end
 
     puts "answer: #{square_arr}"
-  end
-
-  # input method
-  def input_method
-    print 'Input integer number N: '
-    gets.to_i
   end
 end

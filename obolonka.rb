@@ -2,42 +2,56 @@ require './abramove.rb'
 require 'json'
 include Abramove
 
-# terminal interface for communicated with user
 class Obolonka
-  def start
+  def get_json
     file = open('tasks.json').read
-    parsed = JSON.parse(file)
-    
-    parsed.each { |key, value| puts value }
-
-    print 'Input task number:'
-
-    n = gets.to_i
-
-    case n
-    when 224
-      arg = input_method()
-      n_dividers(arg)
-    when 325
-      arg = input_method()
-      n_prime_dividers(arg)
-    when 331
-      arg = input_method()
-      three_square_sum(arg)
-    when 332
-      arg = input_method()
-      lagrange(arg)
-    when 561
-      arg = input_method()
-      num_last_square(arg)
-    else
-      print 'Enter valid number: '
-    end
-
-    print 'Another task? y/n: '
-    gets.chomp == 'y' ? start : return
+    parsed = JSON.parse(file)["tasks"]
   end
+
+	def get_tasks_desc  
+	  get_json.each do |task| 
+	    puts "#{task['id']}. #{task['desc']}" 
+	  end
+	end
+
+	def get_task_id(id)	  
+	  task_id = []
+
+	  get_json.each do |task| 
+	    task_id << task['id'] if task['id'].to_i == id
+	  end
+
+	  task_id.first
+	end
+
+	def get_task_method(id) 
+	  task_method = []
+
+	  get_json.each do |task| 
+	    task_method << task['method'] if task['id'].to_i == id
+	  end
+
+	  task_method.first
+	end
+
+	def start
+		get_tasks_desc		
+
+		print 'Input task number:'
+		n = gets.to_i
+		task_id = get_task_id(n)
+
+
+		if n == task_id
+			send(get_task_method(n))
+		else
+			print "Wrong task number!"
+		end
+		print 'Another task? y/n: '
+    gets.chomp == 'y' ? start : return
+	end
 end
 
 run = Obolonka.new
 run.start
+
