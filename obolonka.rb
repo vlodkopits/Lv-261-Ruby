@@ -40,7 +40,13 @@ class Obolonka
     print 'Input task number:'
     n = gets.to_i
     task_id = gettask_id(n)
-    n == task_id ? send(gettask_method(n)) : (print 'Wrong task number!')
+
+    if n == task_id
+      arg = input_method
+      send gettask_method(n) , arg
+    else
+      print 'Wrong task number!'
+    end
 
     print 'Another task? y/n: '
     gets.chomp == 'y' ? start : return
