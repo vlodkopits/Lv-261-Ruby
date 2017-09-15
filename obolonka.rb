@@ -1,8 +1,10 @@
 require './abramove.rb'
 require 'json'
-include Abramove
+
 # simple graphic interface forAbramove tasks
 class Obolonka
+  include Abramove
+  
   def getjson
     file = open('tasks.json').read
     JSON.parse(file)['tasks']
